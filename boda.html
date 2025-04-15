@@ -977,10 +977,7 @@
                                                                     </span>
                                                                 </div>
                                                             </div>
-                                                            <div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-invitados elementor-col-100 elementor-field-required">
-                                                                <label for="form-field-invitados" class="elementor-field-label">Nombre(s) de acompañante(s)							</label>
-                                                                <textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[invitados]" id="form-field-invitados" rows="4" placeholder="Nombre y apellido" required="required" aria-required="true" style="color: #7a7b58;"></textarea>
-                                                            </div>
+                                                            
                                                             <div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-celular elementor-col-100">
                                                                 <label for="form-field-celular" class="elementor-field-label">Número de celular							</label>
                                                                 <input size="1" type="tel" name="form_fields[celular]" id="form-field-celular" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Para enviarte algún aviso de importancia. " style="color: #7a7b58;" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
@@ -1006,11 +1003,10 @@
     // Obtén los valores de los campos del formulario.
     const nombre = document.getElementById("form-field-nombre").value.trim();
     const respuesta = document.querySelector("input[name='form_fields[respuesta]']:checked").value;
-    const invitados = document.getElementById("form-field-invitados").value.trim();
     const celular = document.getElementById("form-field-celular").value.trim();
 
     // Verifica que los campos requeridos estén llenos.
-    if (!nombre || !respuesta || !invitados) {
+    if (!nombre || !respuesta) {
         alert("Por favor, completa todos los campos requeridos.");
         return;
     }
@@ -1019,7 +1015,6 @@
     const mensaje = `Hola, aquí están los detalles de mi respuesta: 
 - Nombre: ${nombre}
 - Respuesta: ${respuesta}
-- Acompañante(s): ${invitados}
 - Celular: ${celular ? celular : "No proporcionado"}`;
 
     // Genera el enlace de WhatsApp.
@@ -1279,7 +1274,7 @@
                                                         <i class='far fa-heart'></i>
                                                     </div>
                                                     <div class="ue_icon_spacing"></div>
-                                                    <div class="ue_marq_text_wrap">#RosarioYSaul
+                                                    <div class="ue_marq_text_wrap">#MargaritaYEugenio
           </div>
                                                 </a>
                                             </div>
