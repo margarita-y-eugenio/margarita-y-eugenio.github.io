@@ -1378,425 +1378,417 @@
                 </div>
             </div>
         </div>
-        <script type='text/javascript'>
-            const lazyloadRunObserver = () => {
-                const lazyloadBackgrounds = document.querySelectorAll(`.e-con.e-parent:not(.e-lazyloaded)`);
-                const lazyloadBackgroundObserver = new IntersectionObserver( (entries) => {
-                    entries.forEach( (entry) => {
-                        if (entry.isIntersecting) {
-                            let lazyloadBackground = entry.target;
-                            if (lazyloadBackground) {
-                                lazyloadBackground.classList.add('e-lazyloaded');
-                            }
-                            lazyloadBackgroundObserver.unobserve(entry.target);
-                        }
+        <script>
+    const lazyloadRunObserver = () => {
+        const lazyloadBackgrounds = document.querySelectorAll(`.e-con.e-parent:not(.e-lazyloaded)`);
+        const lazyloadBackgroundObserver = new IntersectionObserver( (entries) => {
+            entries.forEach( (entry) => {
+                if (entry.isIntersecting) {
+                    let lazyloadBackground = entry.target;
+                    if (lazyloadBackground) {
+                        lazyloadBackground.classList.add('e-lazyloaded');
                     }
-                    );
+                    lazyloadBackgroundObserver.unobserve(entry.target);
                 }
-                ,{
-                    rootMargin: '200px 0px 200px 0px'
-                });
-                lazyloadBackgrounds.forEach( (lazyloadBackground) => {
-                    lazyloadBackgroundObserver.observe(lazyloadBackground);
-                }
-                );
-            }
-            ;
-            const events = ['DOMContentLoaded', 'elementor/lazyload/observe', ];
-            events.forEach( (event) => {
-                document.addEventListener(event, lazyloadRunObserver);
             }
             );
-        </script>
-        <script id="wp-block-template-skip-link-js-after">
-            (function() {
-                var skipLinkTarget = document.querySelector('main'), sibling, skipLinkTargetID, skipLink;
+        }
+        ,{
+            rootMargin: '200px 0px 200px 0px'
+        });
+        lazyloadBackgrounds.forEach( (lazyloadBackground) => {
+            lazyloadBackgroundObserver.observe(lazyloadBackground);
+        }
+        );
+    }
+    ;
+    const events = ['DOMContentLoaded', 'elementor/lazyload/observe', ];
+    events.forEach( (event) => {
+        document.addEventListener(event, lazyloadRunObserver);
+    }
+    );
+</script>
+<script id="wp-block-template-skip-link-js-after">
+    (function() {
+        var skipLinkTarget = document.querySelector('main'), sibling, skipLinkTargetID, skipLink;
 
-                // Early exit if a skip-link target can't be located.
-                if (!skipLinkTarget) {
-                    return;
+        // Early exit if a skip-link target can't be located.
+        if (!skipLinkTarget) {
+            return;
+        }
+
+        /*
+ * Get the site wrapper.
+ * The skip-link will be injected in the beginning of it.
+ */
+        sibling = document.querySelector('.wp-site-blocks');
+
+        // Early exit if the root element was not found.
+        if (!sibling) {
+            return;
+        }
+
+        // Get the skip-link target's ID, and generate one if it doesn't exist.
+        skipLinkTargetID = skipLinkTarget.id;
+        if (!skipLinkTargetID) {
+            skipLinkTargetID = 'wp--skip-link--target';
+            skipLinkTarget.id = skipLinkTargetID;
+        }
+
+        // Create the skip link.
+        skipLink = document.createElement('a');
+        skipLink.classList.add('skip-link', 'screen-reader-text');
+        skipLink.href = '#' + skipLinkTargetID;
+        skipLink.innerHTML = 'Saltar al contenido';
+
+        // Inject the skip link.
+        sibling.parentElement.insertBefore(skipLink, sibling);
+    }());
+</script>
+<script src="https://operacionxv.mx/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" id="swiper-js"></script>
+<script src="https://operacionxv.mx/wp-content/plugins/elementor/assets/lib/e-gallery/js/e-gallery.min.js?ver=1.2.0" id="elementor-gallery-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelement-and-player.min.js?ver=1.5.145" id="uc_cdnjs_cloudflare_com_ajax_libs_mediaelement_4_2_16_mediaelement_and_player_min_js-js"></script>
+<script src="https://operacionxv.mx/wp-content/plugins/unlimited-elements-for-elementor-premium/assets_libraries/countdown/jquery.countdown.js?ver=1.5.145" id="countdown-js"></script>
+<script src="https://operacionxv.mx/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.28.4" id="elementor-pro-webpack-runtime-js"></script>
+<script src="https://operacionxv.mx/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.28.4" id="elementor-webpack-runtime-js"></script>
+<script src="https://operacionxv.mx/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.28.4" id="elementor-frontend-modules-js"></script>
+<script src="https://operacionxv.mx/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script src="https://operacionxv.mx/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+    wp.i18n.setLocaleData({
+        'text direction\u0004ltr': ['ltr']
+    });
+</script>
+<script id="elementor-pro-frontend-js-before">
+    var ElementorProFrontendConfig = {
+        "ajaxurl": "https:\/\/operacionxv.mx\/wp-admin\/admin-ajax.php",
+        "nonce": "81ca66a7ef",
+        "urls": {
+            "assets": "https:\/\/operacionxv.mx\/wp-content\/plugins\/elementor-pro\/assets\/",
+            "rest": "https:\/\/operacionxv.mx\/wp-json\/"
+        },
+        "settings": {
+            "lazy_load_background_images": true
+        },
+        "popup": {
+            "hasPopUps": false
+        },
+        "shareButtonsNetworks": {
+            "facebook": {
+                "title": "Facebook",
+                "has_counter": true
+            },
+            "twitter": {
+                "title": "Twitter"
+            },
+            "linkedin": {
+                "title": "LinkedIn",
+                "has_counter": true
+            },
+            "pinterest": {
+                "title": "Pinterest",
+                "has_counter": true
+            },
+            "reddit": {
+                "title": "Reddit",
+                "has_counter": true
+            },
+            "vk": {
+                "title": "VK",
+                "has_counter": true
+            },
+            "odnoklassniki": {
+                "title": "OK",
+                "has_counter": true
+            },
+            "tumblr": {
+                "title": "Tumblr"
+            },
+            "digg": {
+                "title": "Digg"
+            },
+            "skype": {
+                "title": "Skype"
+            },
+            "stumbleupon": {
+                "title": "StumbleUpon",
+                "has_counter": true
+            },
+            "mix": {
+                "title": "Mix"
+            },
+            "telegram": {
+                "title": "Telegram"
+            },
+            "pocket": {
+                "title": "Pocket",
+                "has_counter": true
+            },
+            "xing": {
+                "title": "XING",
+                "has_counter": true
+            },
+            "whatsapp": {
+                "title": "WhatsApp"
+            },
+            "email": {
+                "title": "Email"
+            },
+            "print": {
+                "title": "Print"
+            },
+            "x-twitter": {
+                "title": "X"
+            },
+            "threads": {
+                "title": "Threads"
+            }
+        },
+        "facebook_sdk": {
+            "lang": "es_MX",
+            "app_id": ""
+        },
+        "lottie": {
+            "defaultAnimationUrl": "https:\/\/operacionxv.mx\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"
+        }
+    };
+</script>
+<script src="https://operacionxv.mx/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.28.4" id="elementor-pro-frontend-js"></script>
+<script src="https://operacionxv.mx/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script id="elementor-frontend-js-before">
+    var elementorFrontendConfig = {
+        "environmentMode": {
+            "edit": false,
+            "wpPreview": false,
+            "isScriptDebug": false
+        },
+        "i18n": {
+            "shareOnFacebook": "Compartir en Facebook",
+            "shareOnTwitter": "Compartir en Twitter",
+            "pinIt": "Fijarlo",
+            "download": "Descargar",
+            "downloadImage": "Descargar imagen",
+            "fullscreen": "Pantalla completa",
+            "zoom": "Zoom",
+            "share": "Compartir",
+            "playVideo": "Reproducir video",
+            "previous": "Previo",
+            "next": "Siguiente",
+            "close": "Cerrar",
+            "a11yCarouselPrevSlideMessage": "Diapositiva anterior",
+            "a11yCarouselNextSlideMessage": "Diapositiva siguiente",
+            "a11yCarouselFirstSlideMessage": "Esta es la primera diapositiva",
+            "a11yCarouselLastSlideMessage": "Esta es la \u00faltima diapositiva",
+            "a11yCarouselPaginationBulletMessage": "Ir a la diapositiva"
+        },
+        "is_rtl": false,
+        "breakpoints": {
+            "xs": 0,
+            "sm": 480,
+            "md": 768,
+            "lg": 1025,
+            "xl": 1440,
+            "xxl": 1600
+        },
+        "responsive": {
+            "breakpoints": {
+                "mobile": {
+                    "label": "M\u00f3vil en Retrato",
+                    "value": 767,
+                    "default_value": 767,
+                    "direction": "max",
+                    "is_enabled": true
+                },
+                "mobile_extra": {
+                    "label": "M\u00f3vil horizontal",
+                    "value": 880,
+                    "default_value": 880,
+                    "direction": "max",
+                    "is_enabled": false
+                },
+                "tablet": {
+                    "label": "Tableta vertical",
+                    "value": 1024,
+                    "default_value": 1024,
+                    "direction": "max",
+                    "is_enabled": true
+                },
+                "tablet_extra": {
+                    "label": "Tableta horizontal",
+                    "value": 1200,
+                    "default_value": 1200,
+                    "direction": "max",
+                    "is_enabled": false
+                },
+                "laptop": {
+                    "label": "Laptop",
+                    "value": 1366,
+                    "default_value": 1366,
+                    "direction": "max",
+                    "is_enabled": false
+                },
+                "widescreen": {
+                    "label": "Pantalla grande",
+                    "value": 2400,
+                    "default_value": 2400,
+                    "direction": "min",
+                    "is_enabled": false
                 }
+            },
+            "hasCustomBreakpoints": false
+        },
+        "version": "3.28.4",
+        "is_static": false,
+        "experimentalFeatures": {
+            "additional_custom_breakpoints": true,
+            "e_local_google_fonts": true,
+            "theme_builder_v2": true,
+            "editor_v2": true,
+            "home_screen": true
+        },
+        "urls": {
+            "assets": "https:\/\/operacionxv.mx\/wp-content\/plugins\/elementor\/assets\/",
+            "ajaxurl": "https:\/\/operacionxv.mx\/wp-admin\/admin-ajax.php",
+            "uploadUrl": "https:\/\/operacionxv.mx\/wp-content\/uploads"
+        },
+        "nonces": {
+            "floatingButtonsClickTracking": "038e2f25b3"
+        },
+        "swiperClass": "swiper",
+        "settings": {
+            "page": [],
+            "editorPreferences": []
+        },
+        "kit": {
+            "active_breakpoints": ["viewport_mobile", "viewport_tablet"],
+            "global_image_lightbox": "yes",
+            "lightbox_enable_counter": "yes",
+            "lightbox_enable_fullscreen": "yes",
+            "lightbox_enable_zoom": "yes",
+            "lightbox_enable_share": "yes",
+            "lightbox_title_src": "title",
+            "lightbox_description_src": "description"
+        },
+        "post": {
+            "id": 20340,
+            "title": "DEMO%20XV%20PREMIUM%20%E2%80%93%20Operacion%20XV",
+            "excerpt": "",
+            "featuredImage": "https:\/\/operacionxv.mx\/wp-content\/uploads\/2023\/08\/ornament.png"
+        }
+    };
+</script>
+<script src="https://operacionxv.mx/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.28.4" id="elementor-frontend-js"></script>
+<script src="https://operacionxv.mx/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.28.4" id="pro-elements-handlers-js"></script>
+<!--   Unlimited Elements 1.5.145 Scripts -->
+<script type='text/javascript' id='unlimited-elements-scripts'>
 
-                /*
-		 * Get the site wrapper.
-		 * The skip-link will be injected in the beginning of it.
-		 */
-                sibling = document.querySelector('.wp-site-blocks');
+    /* Audio Player scripts: */
 
-                // Early exit if the root element was not found.
-                if (!sibling) {
-                    return;
-                }
+    jQuery(document).ready(function() {
+        function uc_audio_player_mejs_elementor_3b23c0a_start() {
 
-                // Get the skip-link target's ID, and generate one if it doesn't exist.
-                skipLinkTargetID = skipLinkTarget.id;
-                if (!skipLinkTargetID) {
-                    skipLinkTargetID = 'wp--skip-link--target';
-                    skipLinkTarget.id = skipLinkTargetID;
-                }
+            let audio = document.querySelector('#uc_audio_player_mejs_elementor_3b23c0a .ue-audio-player-element__controls');
 
-                // Create the skip link.
-                skipLink = document.createElement('a');
-                skipLink.classList.add('skip-link', 'screen-reader-text');
-                skipLink.href = '#' + skipLinkTargetID;
-                skipLink.innerHTML = 'Saltar al contenido';
+            let features = ['playpause', ];
 
-                // Inject the skip link.
-                sibling.parentElement.insertBefore(skipLink, sibling);
-            }());
-        </script>
-        <script src="https://operacionxv.mx/wp-content/plugins/elementor/assets/lib/e-gallery/js/e-gallery.min.js?ver=1.2.0" id="elementor-gallery-js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelement-and-player.min.js?ver=1.5.125" id="uc_cdnjs_cloudflare_com_ajax_libs_mediaelement_4_2_16_mediaelement_and_player_min_js-js"></script>
-        <script src="https://operacionxv.mx/wp-content/plugins/unlimited-elements-for-elementor-premium/assets_libraries/countdown/jquery.countdown.js?ver=1.5.125" id="countdown-js"></script>
-        <script src="https://operacionxv.mx/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.24.4" id="elementor-pro-webpack-runtime-js"></script>
-        <script src="https://operacionxv.mx/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.24.7" id="elementor-webpack-runtime-js"></script>
-        <script src="https://operacionxv.mx/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.24.7" id="elementor-frontend-modules-js"></script>
-        <script src="https://operacionxv.mx/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
-        <script src="https://operacionxv.mx/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+            let player = new MediaElementPlayer(audio,{
 
-        <script id="wp-i18n-js-after">
-            wp.i18n.setLocaleData({
-                'text direction\u0004ltr': ['ltr']
+                features: features,
+                stretching: 'responsive',
+                audioVolume: 'horizontal',
+                startVolume: 0.2,
+
+                loop: true,
+
             });
-        </script>
-        <script id="elementor-pro-frontend-js-before">
-            var ElementorProFrontendConfig = {
-                "ajaxurl": "https:\/\/operacionxv.mx\/wp-admin\/admin-ajax.php",
-                "nonce": "5df802004e",
-                "urls": {
-                    "assets": "https:\/\/operacionxv.mx\/wp-content\/plugins\/elementor-pro\/assets\/",
-                    "rest": "https:\/\/operacionxv.mx\/wp-json\/"
-                },
-                "settings": {
-                    "lazy_load_background_images": true
-                },
-                "shareButtonsNetworks": {
-                    "facebook": {
-                        "title": "Facebook",
-                        "has_counter": true
-                    },
-                    "twitter": {
-                        "title": "Twitter"
-                    },
-                    "linkedin": {
-                        "title": "LinkedIn",
-                        "has_counter": true
-                    },
-                    "pinterest": {
-                        "title": "Pinterest",
-                        "has_counter": true
-                    },
-                    "reddit": {
-                        "title": "Reddit",
-                        "has_counter": true
-                    },
-                    "vk": {
-                        "title": "VK",
-                        "has_counter": true
-                    },
-                    "odnoklassniki": {
-                        "title": "OK",
-                        "has_counter": true
-                    },
-                    "tumblr": {
-                        "title": "Tumblr"
-                    },
-                    "digg": {
-                        "title": "Digg"
-                    },
-                    "skype": {
-                        "title": "Skype"
-                    },
-                    "stumbleupon": {
-                        "title": "StumbleUpon",
-                        "has_counter": true
-                    },
-                    "mix": {
-                        "title": "Mix"
-                    },
-                    "telegram": {
-                        "title": "Telegram"
-                    },
-                    "pocket": {
-                        "title": "Pocket",
-                        "has_counter": true
-                    },
-                    "xing": {
-                        "title": "XING",
-                        "has_counter": true
-                    },
-                    "whatsapp": {
-                        "title": "WhatsApp"
-                    },
-                    "email": {
-                        "title": "Email"
-                    },
-                    "print": {
-                        "title": "Print"
-                    },
-                    "x-twitter": {
-                        "title": "X"
-                    },
-                    "threads": {
-                        "title": "Threads"
-                    }
-                },
-                "facebook_sdk": {
-                    "lang": "es_MX",
-                    "app_id": ""
-                },
-                "lottie": {
-                    "defaultAnimationUrl": "https:\/\/operacionxv.mx\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"
-                }
-            };
-        </script>
-        <script src="/wp-content/plugins/elementor-pro-assets/js/frontend.min.js?ver=3.24.4" id="elementor-pro-frontend-js"></script>
-        <script src="/wp-includes-js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
-        <script id="elementor-frontend-js-before">
-            var elementorFrontendConfig = {
-                "environmentMode": {
-                    "edit": false,
-                    "wpPreview": false,
-                    "isScriptDebug": false
-                },
-                "i18n": {
-                    "shareOnFacebook": "Compartir en Facebook",
-                    "shareOnTwitter": "Compartir en Twitter",
-                    "pinIt": "Fijarlo",
-                    "download": "Descargar",
-                    "downloadImage": "Descargar imagen",
-                    "fullscreen": "Pantalla completa",
-                    "zoom": "Zoom",
-                    "share": "Compartir",
-                    "playVideo": "Reproducir video",
-                    "previous": "Previo",
-                    "next": "Siguiente",
-                    "close": "Cerrar",
-                    "a11yCarouselWrapperAriaLabel": "Carrusel | Scroll horizontal: Flecha izquierda y derecha",
-                    "a11yCarouselPrevSlideMessage": "Diapositiva anterior",
-                    "a11yCarouselNextSlideMessage": "Diapositiva siguiente",
-                    "a11yCarouselFirstSlideMessage": "Esta es la primera diapositiva",
-                    "a11yCarouselLastSlideMessage": "Esta es la \u00faltima diapositiva",
-                    "a11yCarouselPaginationBulletMessage": "Ir a la diapositiva"
-                },
-                "is_rtl": false,
-                "breakpoints": {
-                    "xs": 0,
-                    "sm": 480,
-                    "md": 768,
-                    "lg": 1025,
-                    "xl": 1440,
-                    "xxl": 1600
-                },
-                "responsive": {
-                    "breakpoints": {
-                        "mobile": {
-                            "label": "M\u00f3vil en Retrato",
-                            "value": 767,
-                            "default_value": 767,
-                            "direction": "max",
-                            "is_enabled": true
-                        },
-                        "mobile_extra": {
-                            "label": "M\u00f3vil horizontal",
-                            "value": 880,
-                            "default_value": 880,
-                            "direction": "max",
-                            "is_enabled": false
-                        },
-                        "tablet": {
-                            "label": "Tableta vertical",
-                            "value": 1024,
-                            "default_value": 1024,
-                            "direction": "max",
-                            "is_enabled": true
-                        },
-                        "tablet_extra": {
-                            "label": "Tableta horizontal",
-                            "value": 1200,
-                            "default_value": 1200,
-                            "direction": "max",
-                            "is_enabled": false
-                        },
-                        "laptop": {
-                            "label": "Laptop",
-                            "value": 1366,
-                            "default_value": 1366,
-                            "direction": "max",
-                            "is_enabled": false
-                        },
-                        "widescreen": {
-                            "label": "Pantalla grande",
-                            "value": 2400,
-                            "default_value": 2400,
-                            "direction": "min",
-                            "is_enabled": false
-                        }
-                    },
-                    "hasCustomBreakpoints": false
-                },
-                "version": "3.24.7",
-                "is_static": false,
-                "experimentalFeatures": {
-                    "additional_custom_breakpoints": true,
-                    "container_grid": true,
-                    "e_swiper_latest": true,
-                    "e_nested_atomic_repeaters": true,
-                    "e_optimized_control_loading": true,
-                    "e_onboarding": true,
-                    "theme_builder_v2": true,
-                    "home_screen": true,
-                    "landing-pages": true,
-                    "link-in-bio": true,
-                    "floating-buttons": true,
-                    "display-conditions": true,
-                    "form-submissions": true
-                },
-                "urls": {
-                    "assets": "https:\/\/operacionxv.mx\/wp-content\/plugins\/elementor\/assets\/",
-                    "ajaxurl": "https:\/\/operacionxv.mx\/wp-admin\/admin-ajax.php",
-                    "uploadUrl": "https:\/\/operacionxv.mx\/wp-content\/uploads"
-                },
-                "nonces": {
-                    "floatingButtonsClickTracking": "0d4981b451"
-                },
-                "swiperClass": "swiper",
-                "settings": {
-                    "page": [],
-                    "editorPreferences": []
-                },
-                "kit": {
-                    "active_breakpoints": ["viewport_mobile", "viewport_tablet"],
-                    "global_image_lightbox": "yes",
-                    "lightbox_enable_counter": "yes",
-                    "lightbox_enable_fullscreen": "yes",
-                    "lightbox_enable_zoom": "yes",
-                    "lightbox_enable_share": "yes",
-                    "lightbox_title_src": "title",
-                    "lightbox_description_src": "description"
-                },
-                "post": {
-                    "id": 20340,
-                    "title": "DEMO%20XV%20PREMIUM%20%E2%80%93%20Operacion%20XV",
-                    "excerpt": "",
-                    "featuredImage": "https:\/\/operacionxv.mx\/wp-content\/uploads\/2023\/08\/ornament.png"
-                }
-            };
-        </script>
-        <script src="/wp-content/plugins/elementor-assets/js/frontend.min.js?ver=3.24.7" id="elementor-frontend-js"></script>
-        <script src="/wp-content/plugins/elementor-pro-assets/js/elements-handlers.min.js?ver=3.24.4" id="pro-elements-handlers-js"></script>
-        <!--   Unlimited Elements 1.5.125 Scripts -->
-        <script type='text/javascript' id='unlimited-elements-scripts'>
-
-            /* Audio Player scripts: */
-
-            jQuery(document).ready(function() {
-                function uc_audio_player_mejs_elementor_3b23c0a_start() {
-
-                    let audio = document.querySelector('#uc_audio_player_mejs_elementor_3b23c0a .ue-audio-player-element__controls');
-
-                    let features = ['playpause', ];
-
-                    let player = new MediaElementPlayer(audio,{
-
-                        features: features,
-                        stretching: 'responsive',
-                        audioVolume: 'horizontal',
-                        startVolume: 0.2,
-
-                        loop: true,
-
-                    });
-
-                }
-                setTimeout(function() {
+        }
+        setTimeout(function() {
+            if (jQuery("#uc_audio_player_mejs_elementor_3b23c0a").length)
+                uc_audio_player_mejs_elementor_3b23c0a_start();
+            else
+                jQuery(document).on('elementor/popup/show', () => {
                     if (jQuery("#uc_audio_player_mejs_elementor_3b23c0a").length)
                         uc_audio_player_mejs_elementor_3b23c0a_start();
-                    else
-                        jQuery(document).on('elementor/popup/show', () => {
-                            if (jQuery("#uc_audio_player_mejs_elementor_3b23c0a").length)
-                                uc_audio_player_mejs_elementor_3b23c0a_start();
-                        }
-                        );
-                }, 100);
-            });
-
-            /* Timer Countdown Banner scripts: */
-
-            jQuery(document).ready(function() {
-                jQuery('#uc_timer_countdown_banner_elementor_1b3b499b').countdownUC('2024/02/24 14:30:00', function(event) {
-                    var jQuerythis = jQuery(this).html(event.strftime('' + '<div class="uc_countdown_section days"><div class="uc_countdown_amount">%D</div><div class="uc_countdown_period"> Días </div></div>' + '<div class="uc_countdown_section hours"><div class="uc_countdown_amount">%H</div><div class="uc_countdown_period"> Hrs. </div></div>' + '<div class="uc_countdown_section minutes"><div class="uc_countdown_amount">%M</div><div class="uc_countdown_period"> Min. </div></div>' + '<div class="uc_countdown_section seconds"><div class="uc_countdown_amount">%S</div><div class="uc_countdown_period"> Seg. </div></div>')).on('finish.countdown', ueHideOnExpiry)
-                    ;
-                });
-
-                function ueHideOnExpiry() {
-                    jQuery('#uc_timer_countdown_banner_elementor_1b3b499bbanner').hide();
                 }
+                );
+        }, 100);
+    });
 
-            });
+    /* Timer Countdown Banner scripts: */
 
-            /* List Marquee scripts: */
+    jQuery(document).ready(function() {
+        jQuery('#uc_timer_countdown_banner_elementor_1b3b499b').countdownUC('2024/02/24 14:30:00', function(event) {
+            var jQuerythis = jQuery(this).html(event.strftime('' + '<div class="uc_countdown_section days"><div class="uc_countdown_amount">%D</div><div class="uc_countdown_period"> Días </div></div>' + '<div class="uc_countdown_section hours"><div class="uc_countdown_amount">%H</div><div class="uc_countdown_period"> Hrs. </div></div>' + '<div class="uc_countdown_section minutes"><div class="uc_countdown_amount">%M</div><div class="uc_countdown_period"> Min. </div></div>' + '<div class="uc_countdown_section seconds"><div class="uc_countdown_amount">%S</div><div class="uc_countdown_period"> Seg. </div></div>')).on('finish.countdown', ueHideOnExpiry)
+            ;
+        });
 
-            jQuery(document).ready(function() {
+        function ueHideOnExpiry() {
+            jQuery('#uc_timer_countdown_banner_elementor_1b3b499bbanner').hide();
+        }
 
-                var objListMarquee = jQuery('#uc_list_marquee_elementor_9cb49bc');
+    });
 
-                //find all items and clone them 9 times
-                function cloneItems() {
+    /* List Marquee scripts: */
 
-                    var objItemsWrapper = objListMarquee.find('.ue-marquee-content');
+    jQuery(document).ready(function() {
 
-                    for (let i = 0; i < 3; i++) {
+        var objListMarquee = jQuery('#uc_list_marquee_elementor_9cb49bc');
 
-                        var objItemsCloned = objListMarquee.find('.ue-marquee-tag').clone();
+        //find all items and clone them 9 times
+        function cloneItems() {
 
-                        objItemsWrapper.append(objItemsCloned);
+            var objItemsWrapper = objListMarquee.find('.ue-marquee-content');
 
-                    }
+            for (let i = 0; i < 3; i++) {
 
-                }
+                var objItemsCloned = objListMarquee.find('.ue-marquee-tag').clone();
 
-                cloneItems();
+                objItemsWrapper.append(objItemsCloned);
 
-                objListMarquee.on("uc_ajax_refreshed", function() {
-                    cloneItems();
-                });
+            }
 
-            });
-        </script>
-        <!-- start Simple Custom CSS and JS -->
-        <script>
+        }
 
-            jQuery(document).ready(function($) {
+        cloneItems();
 
-                var audioPlayer = document.getElementsByTagName("audio")[0];
+        objListMarquee.on("uc_ajax_refreshed", function() {
+            cloneItems();
+        });
 
-                $(document).one('click', function() {
-                    audioPlayer.play();
-                });
-                $(document).one('touchstart', function() {
-                    audioPlayer.play();
-                });
-            });
+    });
+</script>
+<!-- start Simple Custom CSS and JS -->
+<script>
 
-            //alert("La página ha cargado completamente.");
-            //document.body.setAttribute("onclick", "PlayAudio()");
-            //var audioPlayer = document.getElementsByTagName("audio")[0];
-            //	var playButton = document.getElementById("btn-play");
-            //playButton.addEventListener("click", function() {
-            //alert('Click al botón')
-            //})
+    jQuery(document).ready(function($) {
 
-            //document.body.setAttribute("onclick", "PlayAudio()");
-            //var audioPlayer = document.getElementsByTagName("audio")[0];
-            //	function PlayAudio() {
-            //console.log("entro");
-            //	audioPlayer.play();
-            //}
-        </script>
-        <!-- end Simple Custom CSS and JS -->
-    </body>
+        var audioPlayer = document.getElementsByTagName("audio")[0];
+
+        $(document).one('click', function() {
+            audioPlayer.play();
+        });
+        $(document).one('touchstart', function() {
+            audioPlayer.play();
+        });
+    });
+
+    //alert("La página ha cargado completamente.");
+    //document.body.setAttribute("onclick", "PlayAudio()");
+    //var audioPlayer = document.getElementsByTagName("audio")[0];
+    //	var playButton = document.getElementById("btn-play");
+    //playButton.addEventListener("click", function() {
+    //alert('Click al botón')
+    //})
+
+    //document.body.setAttribute("onclick", "PlayAudio()");
+    //var audioPlayer = document.getElementsByTagName("audio")[0];
+    //	function PlayAudio() {
+    //console.log("entro");
+    //	audioPlayer.play();
+    //}
+</script>
+<!-- end Simple Custom CSS and JS -->
+</body>
 </html>
+
